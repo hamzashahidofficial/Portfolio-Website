@@ -217,6 +217,16 @@
             width: 100%;
         }
 
+        .nav-links a.active {
+            color: var(--primary) !important;
+            font-weight: 700;
+        }
+
+        .nav-links a.active:after {
+            width: 100% !important;
+            background: var(--primary);
+        }
+
         .mobile-menu {
             display: none;
             font-size: 1.5rem;
@@ -1313,6 +1323,7 @@
                         </div>
                     </div>
                 </div>
+                <!-- <img src="your-image.jpg" alt="Educational Platforms" style="width: 60px; height: 60px; object-fit: contain; border-radius: 8px;"> -->
 
                 <div class="project-card fade-in" data-category="commercial">
                     <div class="project-image">
@@ -1602,6 +1613,46 @@
                 header.style.boxShadow = '0 4px 6px -1px rgba(0, 0, 0, 0.05)';
             }
         });
+
+
+        // Active Navigation Highlight on Scroll & Click
+const navLinks = document.querySelectorAll('.nav-links a');
+
+function setActiveLink() {
+    let current = '';
+
+    // Check which section is in viewport
+    document.querySelectorAll('section').forEach(section => {
+        const sectionTop = section.offsetTop - 100; // Adjust for fixed header
+        const sectionHeight = section.offsetHeight;
+        if (pageYOffset >= sectionTop && pageYOffset < sectionTop + sectionHeight) {
+            current = section.getAttribute('id');
+        }
+    });
+
+    // Remove active class from all links
+    navLinks.forEach(link => {
+        link.classList.remove('active');
+        link.style.color = ''; // Reset color
+        if (link.getAttribute('href') === `#${current}`) {
+            link.classList.add('active');
+        }
+    });
+}
+
+// Run on scroll
+window.addEventListener('scroll', setActiveLink);
+
+// Run on page load
+setActiveLink();
+
+// Also run when clicking a nav link (optional, for instant feedback)
+navLinks.forEach(link => {
+    link.addEventListener('click', function() {
+        navLinks.forEach(l => l.classList.remove('active'));
+        this.classList.add('active');
+    });
+});
     </script>
 </body>
 
