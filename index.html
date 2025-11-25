@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hamza Shahid - Android Developer</title>
     <meta name="description"
-        content="Experienced Android Developer with 3+ years creating innovative mobile solutions for e-commerce, education, and enterprise sectors.">
+        content="Experienced Android Developer with 4+ years creating innovative mobile solutions for e-commerce, education, and enterprise sectors.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
@@ -1074,7 +1074,7 @@
         <div class="container">
             <div class="hero-content">
                 <h1>Android Developer</h1>
-                <p>Experienced Android Developer with 3+ years creating innovative mobile solutions for e-commerce,
+                <p>Experienced Android Developer with 4+ years creating innovative mobile solutions for e-commerce,
                     education, and enterprise sectors.</p>
                 <div class="hero-btns">
                     <a href="#contact" class="btn">
@@ -1153,40 +1153,41 @@
                         <span class="skill-tag">MSSQL</span>
                     </div>
                 </div>
+                <!-- Android Technologies & Libraries -->
                 <div class="skill-card fade-in">
                     <i class="fas fa-mobile-alt"></i>
                     <h3>Android Technologies</h3>
                     <div class="skill-tags">
-                        <span class="skill-tag">Android Studio</span>
                         <span class="skill-tag">Android SDK</span>
-                        <span class="skill-tag">Volley</span>
                         <span class="skill-tag">Retrofit</span>
+                        <span class="skill-tag">Volley</span>
                         <span class="skill-tag">Gson</span>
                         <span class="skill-tag">Glide</span>
-                        <span class="skill-tag">Firebase</span>
-                        <span class="skill-tag">AdMob</span>
-                        <span class="skill-tag">ML Kit</span>
                         <span class="skill-tag">Lottie</span>
                         <span class="skill-tag">ZXing</span>
+                        <span class="skill-tag">ML Kit</span>
                     </div>
                 </div>
+
+                <!-- Tools & Platforms -->
                 <div class="skill-card fade-in">
                     <i class="fas fa-tools"></i>
                     <h3>Tools & Platforms</h3>
                     <div class="skill-tags">
+                        <span class="skill-tag">Android Studio</span>
+                        <span class="skill-tag">IntelliJ IDEA</span>
+                        <span class="skill-tag">PyCharm</span>
                         <span class="skill-tag">Git</span>
                         <span class="skill-tag">GitHub</span>
                         <span class="skill-tag">Play Console</span>
-                        <span class="skill-tag">JDBC</span>
-                        <span class="skill-tag">Agile</span>
-                        <span class="skill-tag">Material Design</span>
-                        <span class="skill-tag">Android Architecture Components</span>
-                        <span class="skill-tag">REST APIs</span>
-                        <span class="skill-tag">JSON Parsing</span>
+                        <span class="skill-tag">Firebase</span>
+                        <span class="skill-tag">AdMob</span>
+                        <span class="skill-tag">Figma</span>
+                        <span class="skill-tag">Postman</span>
                     </div>
                 </div>
-            </div>
-        </div>
+
+
     </section>
 
     <!-- Experience Section -->
@@ -1616,43 +1617,43 @@
 
 
         // Active Navigation Highlight on Scroll & Click
-const navLinks = document.querySelectorAll('.nav-links a');
+        const navLinks = document.querySelectorAll('.nav-links a');
 
-function setActiveLink() {
-    let current = '';
+        function setActiveLink() {
+            let current = '';
 
-    // Check which section is in viewport
-    document.querySelectorAll('section').forEach(section => {
-        const sectionTop = section.offsetTop - 100; // Adjust for fixed header
-        const sectionHeight = section.offsetHeight;
-        if (pageYOffset >= sectionTop && pageYOffset < sectionTop + sectionHeight) {
-            current = section.getAttribute('id');
+            // Check which section is in viewport
+            document.querySelectorAll('section').forEach(section => {
+                const sectionTop = section.offsetTop - 100; // Adjust for fixed header
+                const sectionHeight = section.offsetHeight;
+                if (pageYOffset >= sectionTop && pageYOffset < sectionTop + sectionHeight) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            // Remove active class from all links
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                link.style.color = ''; // Reset color
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
         }
-    });
 
-    // Remove active class from all links
-    navLinks.forEach(link => {
-        link.classList.remove('active');
-        link.style.color = ''; // Reset color
-        if (link.getAttribute('href') === `#${current}`) {
-            link.classList.add('active');
-        }
-    });
-}
+        // Run on scroll
+        window.addEventListener('scroll', setActiveLink);
 
-// Run on scroll
-window.addEventListener('scroll', setActiveLink);
+        // Run on page load
+        setActiveLink();
 
-// Run on page load
-setActiveLink();
-
-// Also run when clicking a nav link (optional, for instant feedback)
-navLinks.forEach(link => {
-    link.addEventListener('click', function() {
-        navLinks.forEach(l => l.classList.remove('active'));
-        this.classList.add('active');
-    });
-});
+        // Also run when clicking a nav link (optional, for instant feedback)
+        navLinks.forEach(link => {
+            link.addEventListener('click', function () {
+                navLinks.forEach(l => l.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
     </script>
 </body>
 
